@@ -70,7 +70,12 @@ function getPlayState(){
             player.stop();
             console.log("播放下一首");
             currentMusic = null;
-            playNext();
+            if(musicList.length>1){
+                playNext();
+            }
+            else{
+                console.log("列表无歌曲");
+            }
         }
         else{
             setTimeout(getPlayState,100);
