@@ -1,0 +1,12 @@
+登录API
+http://musicapi.leanapp.cn/login/cellphone?phone=xxx&password=yyy
+#phone：手机号
+#password：密码
+
+搜索歌曲API
+http://musicapi.leanapp.cn/search?keywords=
+#keywords：搜索关键词
+
+播放音乐API
+https://api.imjad.cn/cloudmusic/?type=song&id=347230&br=128000
+#id：歌曲id

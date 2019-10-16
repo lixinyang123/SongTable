@@ -1,0 +1,16 @@
+//登录响应cookie
+// appver=1.5.9;
+// os=osx;
+// channel=netease;
+// osver=%E7%89%88%E6%9C%AC%2010.13.2%EF%BC%88%E7%89%88%E5%8F%B7%2017C88%EF%BC%89;
+// __csrf=c7468973ceea253e465d68df010edc70; Domain=; Expires=Fri, 25-Oct-2019 20:21:58 GMT;
+// MUSIC_U=1a022b7e5edfdfebfcc37c9b1fc3bb5e13bfd18e17086cb11236e2ddcdf7538d544570b3343b3a65820bcc2a104bf7fa384fe0dd1eca3a5f;
+
+//搜索歌曲请求cookie
+// appver=1.5.9;
+// os=osx; 
+// channel=netease; 
+// osver=%E7%89%88%E6%9C%AC%2010.13.2%EF%BC%88%E7%89%88%E5%8F%B7%2017C88%EF%BC%89; 
+// __remember_me=true; 
+// __csrf=a41aa235dd77ce6f00d433a4b9bf6157; 
+// MUSIC_U=1a022b7e5edfdfebfcc37c9b1fc3bb5ea13dc00175549576d50790726b74ebcb149685a7aa5d9058a3535936e182836c41049cea1c6bb9b6

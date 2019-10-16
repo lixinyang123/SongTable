@@ -1,0 +1,14 @@
+{
+  "name": "mcenter",
+  "version": "1.0.0",
+  "description": "宿舍点歌台",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "lllxy",
+  "license": "ISC"
+}
