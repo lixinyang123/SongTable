@@ -45,32 +45,33 @@ function play(musicId){
         var url = "http://music.163.com/song/media/outer/url?id="+musicId+".mp3";
         player.play(url);
         currentMusic = musicId;
-        getPlayState();
+        checkPlayState();
     }
 }
 
 function playNext(){
     try{
-        musicList.shift();
         var musicId  = musicList[0];
         var url = "http://music.163.com/song/media/outer/url?id="+musicId+".mp3";
         player.play(url);
         currentMusic = musicId;
-        setTimeout(getPlayState,1000);
+        setTimeout(checkPlayState,1000);
     }
     catch(err){
         throw 'error';
     }
 }
 
-function getPlayState(){
+function checkPlayState(){
     player.getProgress((progress)=>{
         progress = Math.round(progress*100);
         if(progress>=99){
             player.stop();
-            console.log("播放下一首");
+            //弹出播放完成的音乐
             currentMusic = null;
-            if(musicList.length>1){
+            musicList.shift();
+            if(musicList.length>0){
+                console.log("播放下一首");
                 playNext();
             }
             else{
@@ -78,7 +79,7 @@ function getPlayState(){
             }
         }
         else{
-            setTimeout(getPlayState,100);
+            setTimeout(checkPlayState,100);
         }
     });
 }
