@@ -39,24 +39,24 @@ function getSearchResult(callback){
     });
 }
 
-function play(musicId){
+function play(music){
 
-    addMusic(musicId);
+    addMusic(music);
     
     if(currentMusic==null){
-        var url = "http://music.163.com/song/media/outer/url?id="+musicId+".mp3";
+        var url = "http://music.163.com/song/media/outer/url?id="+music.id+".mp3";
         player.play(url);
-        currentMusic = musicId;
+        currentMusic = music;
         checkPlayState();
     }
 }
 
 function playNext(){
     try{
-        var musicId  = musicList[0];
-        var url = "http://music.163.com/song/media/outer/url?id="+musicId+".mp3";
+        var music  = musicList[0];
+        var url = "http://music.163.com/song/media/outer/url?id="+music.id+".mp3";
         player.play(url);
-        currentMusic = musicId;
+        currentMusic = music;
         setTimeout(checkPlayState,1000);
     }
     catch(err){
@@ -86,8 +86,8 @@ function checkPlayState(){
     });
 }
 
-function addMusic(musicId){
-    musicList.push(musicId);
+function addMusic(music){
+    musicList.push(music);
 }
 
 module.exports={

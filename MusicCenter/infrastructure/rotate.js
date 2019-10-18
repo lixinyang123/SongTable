@@ -33,10 +33,20 @@ module.exports = function (req,res){
 
         case "/play":
             try{
-                var query = url.parse(req.url).query;
-                query = query.substring(query.indexOf("=")+1);
-                player.play(query);
-                res.end("点歌成功"+query);
+                if(req.method === 'POST'){
+                    var data = "";
+                    req.on("data",(chunk)=>{
+                        data += chunk;
+                    });
+                    req.on("end",()=>{
+                        var music = JSON.parse(data);
+                        player.play(music);
+                        res.end("点歌成功"+music.name);
+                    });
+                }
+                else{
+                    res.end("请求不合法");
+                }
             }
             catch(err){
                 res.end("点歌失败"+err);

@@ -65,10 +65,10 @@ function play(num) {
   $.ajax({
     url: url,
     type: 'POST',
-    data: music,
+    data: JSON.stringify(music),
     dataType: "text",
-    success: function(data) {
-      alert(data);
+    success: function(result) {
+      alert(result);
     },
     error: function(err) {
       alert(err);
