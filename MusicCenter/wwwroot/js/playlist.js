@@ -5,8 +5,7 @@ function next() {
     url: url,
     dataType: "text",
     success: function(data) {
-      alert(data);
-      location.reload();
+      list();
     },
     error: function(err) {
       alert(err);
