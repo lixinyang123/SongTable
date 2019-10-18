@@ -6,6 +6,7 @@ function next() {
     dataType: "text",
     success: function(data) {
       alert(data);
+      location.reload();
     },
     error: function(err) {
       alert(err);
