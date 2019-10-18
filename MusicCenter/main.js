@@ -2,7 +2,7 @@
 
 const http = require("http");
 const url = require("url");
-var rotate = require("./rotate");
+const rotate = require("./infrastructure/rotate");
 const fs = require("fs");
 
 var server = http.createServer((req,res)=>{

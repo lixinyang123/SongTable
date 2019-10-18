@@ -9,7 +9,7 @@ module.exports = function (req,res){
 
     switch(path){
         case "/":
-            fs.readFile(__dirname + "/wwwroot/view/index.html",(err,data)=>{
+            fs.readFile(__dirname+"/../wwwroot/view/index.html",(err,data)=>{
                 res.end(data);
             });
             break;
