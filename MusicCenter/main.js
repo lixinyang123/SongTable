@@ -75,7 +75,8 @@ function rotate(req,res){
             break;
 
         case "musicList":
-
+            var jsonStr = JSON.stringify(player.musicList);
+            res.end(jsonStr);
             break;
 
         default:
