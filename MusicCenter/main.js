@@ -28,7 +28,7 @@ function rotate(req,res){
 
     switch(path){
         case "/":
-            fs.readFile(__dirname + "/wwwroot/index.html",(err,data)=>{
+            fs.readFile(__dirname + "/wwwroot/view/index.html",(err,data)=>{
                 res.end(data);
             });
             break;
@@ -74,12 +74,16 @@ function rotate(req,res){
             }
             break;
 
+        case "musicList":
+
+            break;
+
         default:
             res.statusCode = 404;
             res.end();
     }
 }
 
-server.listen(8435,()=>{
-    console.log("server start at http://localhost:8435/");
+server.listen(8430,()=>{
+    console.log("server start at http://localhost:8430/");
 });
