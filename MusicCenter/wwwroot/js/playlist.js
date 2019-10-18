@@ -5,6 +5,7 @@ function next() {
     url: url,
     dataType: "text",
     success: function(data) {
+      alert(data);
       list();
     },
     error: function(err) {
@@ -31,7 +32,7 @@ function list() {
 
 //展示播放结果
 function showResult(songs) {
-  var html = "<tr style='color: red;'><td><h3>&emsp;&emsp;歌名&emsp;&emsp;</h3></td><td><h3>&emsp;&emsp;歌手&emsp;&emsp;</h3></td></tr>";
+  var html = "<tr style='color: green;'><td><h3>&emsp;&emsp;歌名&emsp;&emsp;</h3></td><td><h3>&emsp;&emsp;歌手&emsp;&emsp;</h3></td></tr>";
 
   for (var i = 0; i < songs.length; i++) {
     var song = songs[i];
