@@ -55,10 +55,10 @@ function rotate(req,res){
                 var query = url.parse(req.url).query;
                 query = query.substring(query.indexOf("=")+1);
                 player.play(query);
-                res.end("点歌成功");
+                res.end("点歌成功"+query);
             }
             catch(err){
-                res.end("点歌失败");
+                res.end("点歌失败"+err);
             }
            
             break;
