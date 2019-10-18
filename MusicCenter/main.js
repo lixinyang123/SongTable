@@ -1,3 +1,5 @@
+//webapp
+
 const http = require("http");
 const url = require("url");
 var rotate = require("./rotate");
@@ -12,6 +14,7 @@ var server = http.createServer((req,res)=>{
 
     //加载中间件
 
+    //处理请求
     fs.readFile(realPath,(err,data)=>{
         if(err){
             rotate(req,res);

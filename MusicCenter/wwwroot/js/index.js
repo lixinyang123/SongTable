@@ -57,6 +57,7 @@ function play(num) {
   });
 }
 
+//跳转播放队列页面
 function list() {
   location.href = "/wwwroot/view/list.html";
 }

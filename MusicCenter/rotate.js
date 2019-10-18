@@ -1,8 +1,9 @@
+//路由模块
+
 const player = require("./player");
 const url = require("url");
 const fs = require("fs");
 
-//路由
 module.exports = function (req,res){
     var path = url.parse(req.url).pathname;
 

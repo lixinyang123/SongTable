@@ -1,3 +1,4 @@
+//播放下一首
 function next() {
   var url = "/next";
   $.ajax({
@@ -12,6 +13,7 @@ function next() {
   });
 }
 
+//获取播放队列
 function list() {
   var url = "/musiclist";
   $.ajax({
@@ -26,6 +28,7 @@ function list() {
   });
 }
 
+//展示播放结果
 function showResult(data) {
   var songlist = data.result.songs;
   var html = "<tr><td><h3>歌名</h3></td><td><h3>歌手</h3></td></tr>";
