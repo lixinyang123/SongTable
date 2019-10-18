@@ -57,16 +57,6 @@ function play(num) {
   });
 }
 
-function next() {
-  var url = "/next";
-  $.ajax({
-    url: url,
-    dataType: "text",
-    success: function(data) {
-      alert(data);
-    },
-    error: function(err) {
-      alert(err);
-    }
-  });
+function list() {
+  location.href = "/wwwroot/view/list.html";
 }
