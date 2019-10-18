@@ -51,6 +51,11 @@ function play(music){
     }
 }
 
+function stopAndPlayNext(){
+    musicList.shift();
+    playNext();
+}
+
 function playNext(){
     try{
         var music  = musicList[0];
@@ -95,4 +100,5 @@ module.exports={
     searchMusic,
     playNext,
     musicList,
+    stopAndPlayNext
 };

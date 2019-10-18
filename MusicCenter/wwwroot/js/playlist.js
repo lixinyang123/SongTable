@@ -20,7 +20,8 @@ function list() {
     url: url,
     dataType: "text",
     success: function(data) {
-      alert("播放队列"+data);
+      alert(data);
+      var playlist = JSON.parse(data);
     },
     error: function(err) {
       alert(err);

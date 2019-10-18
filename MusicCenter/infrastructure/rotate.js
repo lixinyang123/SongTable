@@ -57,7 +57,7 @@ module.exports = function (req,res){
         case "/next":
             var length  = player.musicList.length;
             if(length>1){
-                player.playNext();
+                player.stopAndPlayNext();
                 res.end("切歌成功");
             }
             else{
