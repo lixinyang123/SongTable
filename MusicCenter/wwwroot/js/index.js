@@ -1,3 +1,6 @@
+
+var songlist = null;
+
 //搜索音乐
 function searchMusic() {
   var url = "/search?music=" + document.getElementById("music").value;
@@ -19,7 +22,7 @@ function searchMusic() {
 
 //展示数据
 function showResult(data) {
-  var songlist = data.result.songs;
+  songlist = data.result.songs;
   var html = "<tr><td><h3>歌名</h3></td><td><h3>歌手</h3></td><td><h3>----</h3></td></tr>";
 
   for (var i = 0; i < songlist.length; i++) {
@@ -36,7 +39,7 @@ function showResult(data) {
     }
     html += "<td>" + artists + "</td>";
     //播放音乐
-    html += "<td><button onclick='play(" + song.id + ")' >点歌</button></td>";
+    html += "<td><button onclick='play(" + i + ")' >点歌</button></td>";
     html += "</tr>"
   }
   document.getElementById("songlist").innerHTML = html;
@@ -44,9 +47,25 @@ function showResult(data) {
 
 //播放音乐
 function play(num) {
+
+  var music = { id : "", name : "", artists : "" };
+
+  //组装传输对象
+  music.id = songlist[num].id;
+  music.name = songlist[num].name;
+  var artists = "";
+  for (var j = 0; j < songlist[num].artists.length; j++) {
+    artists += songlist[num].artists[j].name + " ";
+  }
+  music.artists = artists;
+
+  console.log(music);
+
   var url = "/play?musicid=" + num;
   $.ajax({
     url: url,
+    type: 'POST',
+    data: music,
     dataType: "text",
     success: function(data) {
       alert(data);
