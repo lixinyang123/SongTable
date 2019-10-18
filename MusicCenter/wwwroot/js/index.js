@@ -1,4 +1,3 @@
-
 var songlist = null;
 
 //搜索音乐
@@ -31,15 +30,15 @@ function showResult(data) {
     console.log(song);
     html += "<tr>";
     //歌曲标题
-    html += "<td>" + song.name + "</td>";
+    html += "<td>&emsp;&emsp;" + song.name + "&emsp;&emsp;</td>";
     //歌手
     var artists = "";
     for (var j = 0; j < song.artists.length; j++) {
       artists += song.artists[j].name + " ";
     }
-    html += "<td>" + artists + "</td>";
+    html += "<td>&emsp;&emsp;" + artists + "&emsp;&emsp;</td>";
     //播放音乐
-    html += "<td><button onclick='play(" + i + ")' >点歌</button></td>";
+    html += "<td>&emsp;&emsp;<button onclick='play(" + i + ")' >点歌</button>&emsp;&emsp;</td>";
     html += "</tr>"
   }
   document.getElementById("songlist").innerHTML = html;
@@ -48,7 +47,7 @@ function showResult(data) {
 //播放音乐
 function play(num) {
 
-  var music = { id : "", name : "", artists : "" };
+  var music = { id: "", name: "", artists: "" };
 
   //组装传输对象
   music.id = songlist[num].id;

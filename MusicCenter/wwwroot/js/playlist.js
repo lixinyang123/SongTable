@@ -20,7 +20,6 @@ function list() {
     url: url,
     dataType: "text",
     success: function(data) {
-      alert(data);
       var playlist = JSON.parse(data);
       showResult(playlist);
     },
@@ -32,17 +31,15 @@ function list() {
 
 //展示播放结果
 function showResult(songs) {
-  var html = "<tr><td><h3>歌名</h3></td><td><h3>歌手</h3></td></tr>";
+  var html = "<tr style='color: red;'><td><h3>&emsp;&emsp;歌名&emsp;&emsp;</h3></td><td><h3>&emsp;&emsp;歌手&emsp;&emsp;</h3></td></tr>";
 
   for (var i = 0; i < songs.length; i++) {
     var song = songs[i];
-
-    console.log(song);
     html += "<tr>";
     //歌曲标题
-    html += "<td>" + song.name + "</td>";
+    html += "<td>&emsp;&emsp;" + song.name + "&emsp;&emsp;</td>";
     //歌手
-    html += "<td>" + song.artists + "</td>";
+    html += "<td>&emsp;&emsp;" + song.artists + "&emsp;&emsp;</td>";
     html += "</tr>"
   }
   document.getElementById("songlist").innerHTML = html;

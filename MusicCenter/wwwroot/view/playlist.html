@@ -10,6 +10,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/wwwroot/js/playlist.js"></script>
   <title>歌曲列表</title>
+  <style>
+    #songlist {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -18,7 +23,7 @@
       <div class="container">
         <div class="row">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">点歌台</a>
+            <a class="navbar-brand" href="/">点歌台</a>
           </div>
           <div class="navbar-right" style="margin-top: 8px;">
             <button class="btn btn-default" onclick="next()">下一首</button>
@@ -27,10 +32,15 @@
       </div>
 
     </div>
-    <table id="songlist">
-    </table>
+  </nav>
+  <div class="container">
+    <table id="songlist" style="margin: 0 auto;"></table>
+  </div>
 
-    <script>list()</script>
+
+  <script>
+    list();
+  </script>
 
 </body>
 
