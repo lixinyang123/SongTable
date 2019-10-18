@@ -41,6 +41,9 @@ function showResult(data) {
     html += "<td>&emsp;&emsp;<button onclick='play(" + i + ")' >点歌</button>&emsp;&emsp;</td>";
     html += "</tr>"
   }
+  try{
+    document.getElementById("stateTxt").remove();
+  }catch(err){}
   document.getElementById("songlist").innerHTML = html;
 }
 
