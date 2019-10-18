@@ -18,7 +18,7 @@ function list() {
     url: url,
     dataType: "text",
     success: function(data) {
-      alert(data);
+      alert("播放队列"+data);
     },
     error: function(err) {
       alert(err);
@@ -47,5 +47,3 @@ function showResult(data) {
   }
   document.getElementById("songlist").innerHTML = html;
 }
-
-document.onload = list;
