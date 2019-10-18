@@ -10,6 +10,8 @@ var server = http.createServer((req,res)=>{
     //处理静态文件
     var realPath = __dirname+ url.parse(req.url).pathname;
 
+    //加载中间件
+
     fs.readFile(realPath,(err,data)=>{
         if(err){
             rotate(req,res);
