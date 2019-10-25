@@ -40,8 +40,14 @@ module.exports = function (req,res){
                     });
                     req.on("end",()=>{
                         var music = JSON.parse(data);
-                        player.play(music);
-                        res.end("点歌成功"+music.name);
+                        player.play(music,(flag)=>{
+                            if(flag){
+                                res.end("点歌成功"+music.name);
+                            }
+                            else{
+                                res.end("点歌失败，网易云无版权，或歌曲为单曲付费");
+                            }
+                        });
                     });
                 }
                 else{

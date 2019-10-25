@@ -39,16 +39,38 @@ function getSearchResult(callback){
     });
 }
 
-function play(music){
+function play(music,callback){
 
-    addMusic(music);
-    
-    if(currentMusic==null){
-        var url = "http://music.163.com/song/media/outer/url?id="+music.id+".mp3";
-        player.play(url);
-        currentMusic = music;
-        checkPlayState();
-    }
+    var url = "http://music.163.com/song/media/outer/url?id="+music.id+".mp3";
+
+    checkIsMusic(url,(flag)=>{
+        if(flag){
+            addMusic(music);
+            if(currentMusic==null){
+                player.play(url);
+                currentMusic = music;
+                checkPlayState();
+            }
+            callback(true);
+        }
+        else{
+            callback(false);
+        }
+    });
+
+}
+
+function checkIsMusic(url,callback){
+    require("http").get(url,(res)=>{
+        var musicUrl = res.headers.location;
+
+        if(musicUrl.endsWith(".mp3")){
+            callback(true);
+        }
+        else{
+            callback(false);
+        }
+    });
 }
 
 function stopAndPlayNext(){
