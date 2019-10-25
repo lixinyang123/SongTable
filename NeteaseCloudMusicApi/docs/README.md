@@ -150,6 +150,10 @@
 132. 用户电台
 133. 热门电台
 134. 电台 - 节目详情
+135. 电台 - 节目榜
+136. 电台 - 新晋电台榜/热门电台榜
+137. 类别热门电台
+
 
 ## 安装
 
@@ -177,6 +181,15 @@ windows 下使用 git-bash 或者 cmder 等终端执行以下命令 :
 $ set PORT=4000 && node app.js
 ```
 
+服务器启动绑定 127.0.0.1,如果需要更改, 可使用以下命令 : Mac/Linux
+```shell
+$ HOST=localhost node app.js
+```
+windows 下使用 git-bash 或者 cmder 等终端执行以下命令 :
+
+```shell
+$ set HOST=localhost && node app.js
+```
 ## 可以使用代理
 
 在 query 参数中加上 proxy=your-proxy 即可让这一次的请求使用 proxy
@@ -2071,6 +2084,50 @@ MV 数据 , 数据包含 mv 名字 , 歌手 , 发布时间 , mv 视频地址等�
 
 **调用例子 :** `/dj/hot`
 
+### 电台 - 节目榜
+
+说明 : 登陆后调用此接口 , 可获得电台节目榜
+
+**可选参数 :**
+
+`limit` : 返回数量 , 默认为 100
+
+`offset` : 偏移数量，用于分页 , 如 :( 页数 -1)\*100, 其中 100 为 limit 的值 , 默认为 0
+
+**接口地址 :** `/dj/program/toplist`
+
+**调用例子 :** `/dj/program/toplist?limit=1`
+
+### 电台 - 新晋电台榜/热门电台榜
+
+说明 : 登陆后调用此接口 , 可获得新晋电台榜/热门电台榜
+
+**可选参数 :**
+
+`limit` : 返回数量 , 默认为 100
+
+`offset` : 偏移数量，用于分页 , 如 :( 页数 -1)\*100, 其中 100 为 limit 的值 , 默认为 0
+
+`type`: 榜单类型, `new` 为新晋电台榜,`hot`为热门电台榜
+
+**接口地址 :** `/dj/toplist`
+
+**调用例子 :** `/dj/toplist?type=hot` `/dj/toplist?type=new&limit=1`
+
+### 电台 - 类别热门电台
+
+**可选参数 :**
+
+`limit` : 返回数量 , 默认为 30
+
+`offset` : 偏移数量，用于分页 , 如 :( 页数 -1)\*30, 其中 30 为 limit 的值 , 默认为 0
+
+`cateId`: 类别 id,可通过 `/dj/category/recommend` 接口获取
+
+**接口地址 :** `/dj/radio/hot`
+
+**调用例子 :** `/dj/radio/hot?cateId=2001`(创作|翻唱) `/dj/radio/hot?cateId=10002` (3D|电子)
+
 ### 电台 - 推荐
 
 说明 : 登陆后调用此接口 , 可获得推荐电台
@@ -2089,14 +2146,14 @@ MV 数据 , 数据包含 mv 名字 , 歌手 , 发布时间 , mv 视频地址等�
 
 ### 电台 - 分类推荐
 
-说明 : 登陆后调用此接口 , 可获得推荐电台
+说明 : 登陆后调用此接口 , 传入分类,可获得对应类型电台列表
 
 **必选参数 :** `type`: 电台类型 , 数字 , 可通过`/dj/catelist`获取 , 对应关系为
-id 对应 此接口的 type, name 对应类型意义
+id 对应 此接口的 type, name 对应类型
 
 **接口地址 :** `/dj/recommend/type`
 
-**调用例子 :** `/dj/recommend/type?type=1`
+**调用例子 :** `/dj/recommend/type?type=1`(明星做主播) `/dj/recommend/type?type=2001` (创作|翻唱)
 
 ### 电台 - 订阅
 
