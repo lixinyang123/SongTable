@@ -49,7 +49,7 @@ function showResult(data) {
 
 //播放音乐
 function play(num) {
- alert("正在检测音乐是否可用.....清稍等")
+ alert("正在检测音乐是否可用.....清稍等");
   setBtnDisable(true);
   var music = { id: "", name: "", artists: "" };
 
