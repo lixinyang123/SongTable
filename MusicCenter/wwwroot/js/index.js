@@ -50,6 +50,7 @@ function showResult(data) {
 //播放音乐
 function play(num) {
 
+  setBtnDisable(true);
   var music = { id: "", name: "", artists: "" };
 
   //组装传输对象
@@ -70,12 +71,26 @@ function play(num) {
     data: JSON.stringify(music),
     dataType: "text",
     success: function(result) {
+      setBtnDisable(false);
       alert(result);
     },
     error: function(err) {
+      setBtnDisable(false);
       alert(err);
     }
   });
+}
+
+function setBtnDisable(flag){
+  var btns = document.getElementsByTagName("button");
+  for(var i=0;i<btns.length;i++){
+    if(flag){
+      btns[i].setAttribute("disabled","disabled");
+    }
+    else{
+      btns[i].removeAttribute("disabled");
+    }
+  }
 }
 
 //跳转播放队列页面
