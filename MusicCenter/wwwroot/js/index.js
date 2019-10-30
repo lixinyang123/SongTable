@@ -1,5 +1,13 @@
 var songlist = null;
 
+// 回车搜索音乐
+function keydownEvent() {
+  var e = window.event || arguments.callee.caller.arguments[0];
+  if (e && e.keyCode == 13 ) {
+    searchMusic();
+  }
+}
+
 //搜索音乐
 function searchMusic() {
   var url = "/search?music=" + document.getElementById("music").value;

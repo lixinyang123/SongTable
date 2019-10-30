@@ -32,7 +32,7 @@
   </style>
 </head>
 
-<body>
+<body  onkeydown="keydownEvent()">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="container">
@@ -42,7 +42,7 @@
           </div>
           <div class="navbar-left" style="margin: 6px auto;">
             <input class="form-control txtboxSearch" id="music" type="text" name="music" placeholder="搜索音乐" />
-            <button class="btn btn-default" onclick="searchMusic()">搜索</button>
+            <button class="btn btn-default" onclick="searchMusic()" >搜索</button>
           </div>
           <div class="navbar-right" style="margin-top: 8px;">
             <button class="btn btn-default" onclick="list()">播放列表</button>
