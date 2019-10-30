@@ -7,7 +7,6 @@ function keydownEvent() {
     searchMusic();
   }
 }
-
 //搜索音乐
 function searchMusic() {
   var url = "/search?music=" + document.getElementById("music").value;
